@@ -1,7 +1,7 @@
 # game-GuessTheNumber
 My first reasonably put together python app. Runs in python command line.
 Requires Python3.
-|---------------------------------------------------------------------------------------|
+
 The program is a more complicated version of the "Writing a Guess-The-Number Program"
 section in the Udemy Version of @asweigart's "Automate the Boring Stuff with Python"
 book for beginner programmers using python.
