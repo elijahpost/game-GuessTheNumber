@@ -4,42 +4,42 @@ if sys.version_info.major != 3:
     print ('\n >>> This program requires Python 3.x.x to run. <<<\n')
     sys.exit()
 
-class self:
+class game:
     name = None
     score = 0
     lastLevelCleared = 0
 
     @classmethod     # I have two housemates who heped me with this this def. It works but I don't know how...yet. (4/20/20)
-    def resetSelf(self):
-        self.name = None
-        self.score = 0
-        self.lastLevelCleared = 0
+    def reset(self):
+        game.name = None
+        game.score = 0
+        game.lastLevelCleared = 0
         # down the road, I suppose that we could spin up instances of players, and potentially have an all-time score that we could save, or something to that end.
 
     def welcome():
         print ('\nEnter your name:')
-        self.name = input()
-        print ('\nHello, ' + self.name + '. \n')
+        game.name = input()
+        print ('\nHello, ' + game.name + '. \n')
 
     def gameOver():
-        print ('\nGame Over, ' + self.name + '.')
-        print ('Final Score: ' + str(self.score))
+        print ('\nGame Over, ' + game.name + '.')
+        print ('Final Score: ' + str(game.score))
         restartPrompt()
     
     def levelClear(levelNum, levelScore):
-        self.lastLevelCleared = self.lastLevelCleared + 1
-        print ('\n### ' + self.name + ' HAS CLEARED LEVEL ' + str(levelNum) + ' ###\n')
-        print ('Level Score: ' + str(levelScore) + '\n' + 'Total Score: ' + str(self.score) + '\n')
+        game.lastLevelCleared = game.lastLevelCleared + 1
+        print ('\n### ' + game.name + ' HAS CLEARED LEVEL ' + str(levelNum) + ' ###\n')
+        print ('Level Score: ' + str(levelScore) + '\n' + 'Total Score: ' + str(game.score) + '\n')
 
     def gameClear():
         print('\n' + '###########################' + '\n' + '## HOLY SMOKES, YOU WON! ##' + '\n' + '###########################' + '\n')
-        print(self.name + '\'s FINAL SCORE: ' + str(self.score))
+        print(game.name + '\'s FINAL SCORE: ' + str(game.score))
         restartPrompt()
 
     def level(levelNum, minNum, maxNum, maxGuesses):
         def outOfGuesses ():
             print('The correct number was ' + str(secretNum) + '.')
-            self.gameOver()
+            game.gameOver()
         secretNum = random.randint(minNum, maxNum)
         remainingGuesses = maxGuesses - 1
         print ('############ LEVEL ' + str(levelNum) + ' ############# \n')
@@ -51,7 +51,7 @@ class self:
             try:
                 if int(playerGuess) == secretNum:
                     levelScore = maxGuesses - guessCounter
-                    self.score = self.score + levelScore
+                    game.score = game.score + levelScore
                     print ('\nThat\'s It! You guessed it! \n')
                     break
                 elif int(playerGuess) < secretNum:
@@ -61,31 +61,30 @@ class self:
             except (ValueError):
                 print('"' + str(playerGuess) + '" is not a number. You have ' + str(remainingGuesses) + ' guesses left.')
         if int(playerGuess) == secretNum:
-            self.levelClear(levelNum, levelScore)
+            game.levelClear(levelNum, levelScore)
         if playerGuess != str(secretNum):
             outOfGuesses()
         elif int(playerGuess) != secretNum:
             outOfGuesses()
-
 def restartPrompt():
     playAgain = None
     while playAgain != 'y' or 'n':
         print ('\nThink you can do better? (y/n)')
         playAgain = input()
         if playAgain == 'y':
-            self.resetSelf()
+            game.reset()
             main()
         elif playAgain == 'n':
             sys.exit()
 
 def main():
-    self.welcome()
-    self.level(1, 1, 10, 7)
-    self.level(2, 1, 20, 7)
-    self.level(3, -5, 5, 5)
-    self.level(4, 14, 17, 2)
-    self.level(5, 20, 80, 10)
-    self.level('BANANA', -1000, 2500, 20)
-    self.gameClear()
+    game.welcome()
+    game.level(1, 1, 10, 7)
+    game.level(2, 1, 20, 7)
+    game.level(3, -5, 5, 5)
+    game.level(4, 14, 17, 2)
+    game.level(5, 20, 80, 10)
+    game.level('BANANA', -1000, 2500, 20)
+    game.gameClear()
 
 main()
