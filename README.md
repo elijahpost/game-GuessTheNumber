@@ -1,6 +1,7 @@
 # game-GuessTheNumber
-My first reasonably put together python app. Runs in python command line. Requires Python3.
-
+My first reasonably put together python app. Runs in python command line.
+Requires Python3.
+|---------------------------------------------------------------------------------------|
 The program is a more complicated version of the "Writing a Guess-The-Number Program"
 section in the Udemy Version of @asweigart's "Automate the Boring Stuff with Python"
 book for beginner programmers using python.
@@ -42,6 +43,9 @@ Features over and above those defined in the example program:
 	there to guide the player through the game, displaying information and asking for inputs to determine the
 	next thing to do. restartPrompt() uses sys.exit to return the user back to shell if instructed by user input.
 	
+Known Issues:
+	Entering a non-integer on your last available guess will cause the program to crash.
+
 Ideas for more features down the row:
  - It would be kinda tight to save a user's high score for retriveal later.
  - GUI overlay
