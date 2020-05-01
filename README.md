@@ -1,8 +1,8 @@
 # readme
 # game-GuessTheNumber
-My first reasonably put together python app. Runs in python command line.
+My first reasonably put together python program. Runs in python command line.
 Requires Python3.
-|---------------------------------------------------------------------------------------|
+
 The program is a more complicated version of the "Writing a Guess-The-Number Program"
 section in the Udemy Version of @asweigart's "Automate the Boring Stuff with Python"
 book for beginner programmers using python.
@@ -19,7 +19,7 @@ Why do this?
 	using git, which I learned and largely unlearned a few years back. I see familiarity with
 	git as an absolutly essential component to my software education and my hirability.
 3. Build a portfolio.
-	Equally essential to my education and hirability is documented history of conde contribution.
+	Equally essential to my education and hirability is documented history of code contribution.
 	My history begins with this project.
 
 I expect to modify this project as I learn new skills.
